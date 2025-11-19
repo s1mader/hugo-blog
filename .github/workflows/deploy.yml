@@ -19,16 +19,10 @@ jobs:
         key: ${{ secrets.KEY }}
         script: |
           cd /home/al/hugo-blog/blog-site
+          git reset --hard HEAD
+          git clean -fd
           git pull origin main
-          # Generate new HTML files from markdown
-          
-          git reset --hard HEAD  # Discard local changes
-          git clean -fd          # Remove untracked files
-          git pull origin main
-          rm -rf public/*        # Clean build
-          
-          docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify
-          # Restart containers (usually not needed, but ensures fresh serving)
+          # Build Hugo with clean destination (overwrites existing files)
+          docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify --cleanDestinationDir
           cd /home/al/hugo-blog
-          docker compose down
-          docker compose up -d
+          docker compose restart
