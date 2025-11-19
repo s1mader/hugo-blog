@@ -23,4 +23,6 @@ jobs:
           # Generate new HTML files from markdown
           docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify
           # Restart containers (usually not needed, but ensures fresh serving)
-          cd /home/al/hugo-blog && docker compose restart
+          cd /home/al/hugo-blog
+          docker compose down
+          docker compose up -d
