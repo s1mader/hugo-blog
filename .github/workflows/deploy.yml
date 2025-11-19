@@ -22,8 +22,8 @@ jobs:
           git reset --hard HEAD
           git clean -fd
           git pull origin main
-          # Fix permissions before building
-          docker run --rm -v $(pwd):/src alpine:latest sh -c "chown -R 1000:1000 /src/public && rm -rf /src/public/*"
+          # Use root user to clean up permission-protected files
+          docker run --rm -v $(pwd):/src --user root alpine:latest sh -c "rm -rf /src/public/*"
           docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify
           cd /home/al/hugo-blog
           docker compose restart
