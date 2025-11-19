@@ -22,7 +22,8 @@ jobs:
           git reset --hard HEAD
           git clean -fd
           git pull origin main
-          # Build Hugo with clean destination (overwrites existing files)
-          docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify --cleanDestinationDir
+          # Fix permissions before building
+          docker run --rm -v $(pwd):/src alpine:latest sh -c "chown -R 1000:1000 /src/public && rm -rf /src/public/*"
+          docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify
           cd /home/al/hugo-blog
           docker compose restart
