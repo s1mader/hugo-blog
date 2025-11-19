@@ -21,6 +21,12 @@ jobs:
           cd /home/al/hugo-blog/blog-site
           git pull origin main
           # Generate new HTML files from markdown
+          
+          git reset --hard HEAD  # Discard local changes
+          git clean -fd          # Remove untracked files
+          git pull origin main
+          rm -rf public/*        # Clean build
+          
           docker run --rm -v $(pwd):/src hugomods/hugo:latest --minify
           # Restart containers (usually not needed, but ensures fresh serving)
           cd /home/al/hugo-blog
