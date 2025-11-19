@@ -1,6 +1,7 @@
 ---
 title: "How to Set Up a Hugo Blog with Docker and Archie Theme"
-date: 2025-11-19T13:00:00Z
+date: 2025-11-19T13:00:00+00:00
+publishDate: 2025-11-19T13:00:00+00:00
 draft: false
 description: "Complete tutorial for creating a Hugo blog with Docker, Caddy, and the Archie theme"
 tags: ["hugo", "docker", "tutorial", "blogging"]
