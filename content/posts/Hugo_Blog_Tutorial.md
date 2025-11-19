@@ -61,6 +61,7 @@ pygmentscodefencesguesssyntax = true
   pagerSize = 3
 
 [params]
+    dateFormat = "02 Jan 2006"
 	mode = "auto"
 	useCDN = false
 	subtitle = "Minimal and Clean blog theme"
