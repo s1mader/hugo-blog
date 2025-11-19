@@ -1,0 +1,37 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "My Blog"
+theme = "archie"
+copyright = "© Albert Simader"
+
+# IMPORTANT: Force relative URLs
+relativeURLs = true
+canonifyURLs = false
+
+# Code highlighting
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[pagination]
+  pagerSize = 3
+
+[params]
+	mode = "auto"
+	useCDN = false
+	subtitle = "Minimal and Clean blog theme"
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/s1mader"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
